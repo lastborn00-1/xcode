@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xcode Academy – Learn Computers & Beyond</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Xcode Academy</h1>
+      <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#logic">Logic Gates</a></li>
+        <li><a href="#programming">Programming</a></li>
+        <li><a href="#frontend">Frontend</a></li>
+        <li><a href="#backend">Backend</a></li>
+        <li><a href="#ai">AI & Robotics</a></li>
+        <li><a href="#hci">HCI</a></li>
+        <li><a href="#ds">Data Structures</a></li>
+        <li><a href="#handout">Handout</a></li>
+        <li><a href="#about">About</a></li>
+        <li><button id="toggle-theme">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>Introduction to Computers</h2>
+      <p>Learn the fundamentals of computing — from the earliest machines to today's digital age.</p>
+    </section>
+
+    <section id="logic">
+      <h2>Interactive Logic Gates</h2>
+      <div>
+        <label>
+          A: <input type="checkbox" id="inputA">
+        </label>
+        <label>
+          B: <input type="checkbox" id="inputB">
+        </label>
+        <button onclick="testGates()">Test Gates</button>
+        <p>AND: <span id="andOut">-</span></p>
+        <p>OR: <span id="orOut">-</span></p>
+        <p>XOR: <span id="xorOut">-</span></p>
+        <p>NOT A: <span id="notAOut">-</span></p>
+      </div>
+    </section>
+
+    <section id="programming">
+      <h2>Learn Programming</h2>
+      <textarea id="code-editor">// Write JavaScript here</textarea>
+      <button onclick="runCode()">Run</button>
+      <pre id="code-output"></pre>
+    </section>
+
+    <section id="frontend">
+      <h2>Frontend Development</h2>
+      <p>Practice with HTML/CSS live here (coming soon).</p>
+    </section>
+
+    <section id="backend">
+      <h2>Backend Development</h2>
+      <p>Simulate simple backend logic with JS APIs (coming soon).</p>
+    </section>
+
+    <section id="ai">
+      <h2>AI & Robotics</h2>
+      <p>Test your understanding of what AI can/can't do (interactive coming soon).</p>
+    </section>
+
+    <section id="hci">
+      <h2>Human-Computer Interaction</h2>
+      <p>Click below to rate UI examples (coming soon).</p>
+    </section>
+
+    <<section id="ds">
+  <h2>Data Structures & Algorithms</h2>
+
+  <h3>Stack (LIFO)</h3>
+  <input type="text" id="stack-input" placeholder="Enter item" />
+  <button onclick="pushStack()">Push</button>
+  <button onclick="popStack()">Pop</button>
+  <div id="stack-display"></div>
+
+  <h3>Queue (FIFO)</h3>
+  <input type="text" id="queue-input" placeholder="Enter item" />
+  <button onclick="enqueue()">Enqueue</button>
+  <button onclick="dequeue()">Dequeue</button>
+  <div id="queue-display"></div>
+
+  <h3>Binary Tree Traversal (Preorder)</h3>
+  <button onclick="showTreeTraversal()">Show Traversal</button>
+  <div id="tree-output"></div>
+</section>
+
+
+    <section id="handout">
+      <h2>Download the Handout</h2>
+      <a href="handout.pdf" download>📄 Click here to download PDF</a>
+    </section>
+
+    <section id="about">
+      <h2>About the Tutor</h2>
+      <p>I’m Abdulrasheed Yahaya, lecturer at Kwara State College of Health Technology. This site is built to guide beginners through computing and beyond.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
