@@ -1,101 +1,65 @@
-// 🌙 Theme toggle
-document.getElementById("toggle-theme").addEventListener("click", function () {
-  document.body.classList.toggle("dark-mode");
-
-  // Optional: Change button icon
-  this.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-});
-
-// 🔌 Logic gate tester
-function testGates() {
-  const A = document.getElementById("inputA").checked ? 1 : 0;
-  const B = document.getElementById("inputB").checked ? 1 : 0;
-
-  document.getElementById("andOut").textContent = A & B;
-  document.getElementById("orOut").textContent = A | B;
-  document.getElementById("xorOut").textContent = A ^ B;
-  document.getElementById("notAOut").textContent = A ? 0 : 1;
-}
-
-// 🧠 Code runner for JavaScript demo
-function runCode() {
-  const code = document.getElementById("code-editor").value;
-  try {
-    const result = eval(code);
-    document.getElementById("code-output").textContent = result ?? "✅ Code ran successfully";
-  } catch (err) {
-    document.getElementById("code-output").textContent = "❌ Error: " + err.message;
-  }
-}
-// Stack Logic
-let stack = [];
-
-function pushStack() {
-  const value = document.getElementById("stack-input").value;
-  if (value) {
-    stack.push(value);
-    document.getElementById("stack-input").value = "";
-    renderStack();
-  }
-}
-
-function popStack() {
-  stack.pop();
-  renderStack();
-}
-
-function renderStack() {
-  document.getElementById("stack-display").innerHTML = stack
-    .slice()
-    .reverse()
-    .map((item) => `<div>${item}</div>`)
-    .join("");
-}
-
-// Queue Logic
-let queue = [];
-
-function enqueue() {
-  const value = document.getElementById("queue-input").value;
-  if (value) {
-    queue.push(value);
-    document.getElementById("queue-input").value = "";
-    renderQueue();
-  }
-}
-
-function dequeue() {
-  queue.shift();
-  renderQueue();
-}
-
-function renderQueue() {
-  document.getElementById("queue-display").innerHTML = queue
-    .map((item) => `<div>${item}</div>`)
-    .join(" → ");
-}
-
-// Binary Tree Traversal (Preorder Example)
-const tree = {
-  value: "A",
-  left: {
-    value: "B",
-    left: { value: "D" },
-    right: { value: "E" },
-  },
-  right: {
-    value: "C",
-    left: { value: "F" },
-    right: { value: "G" },
-  },
+// Theme Toggle
+document.getElementById("theme-toggle").onclick = () => {
+  document.body.classList.toggle("dark");
 };
 
-function preorder(node) {
-  if (!node) return [];
-  return [node.value].concat(preorder(node.left), preorder(node.right));
+// Logic Gates
+function testGates() {
+  const a = document.getElementById("a").checked ? 1 : 0;
+  const b = document.getElementById("b").checked ? 1 : 0;
+  const and = a & b;
+  const or = a | b;
+  const xor = a ^ b;
+  document.getElementById("gate-results").innerText = `AND: ${and}, OR: ${or}, XOR: ${xor}`;
 }
 
-function showTreeTraversal() {
-  const result = preorder(tree);
-  document.getElementById("tree-output").textContent = "Preorder: " + result.join(" → ");
+// Stack
+let stack = [];
+function pushStack() {
+  const val = document.getElementById("stack-input").value;
+  if (val) {
+    stack.push(val);
+    displayStack();
+  }
+}
+function popStack() {
+  stack.pop();
+  displayStack();
+}
+function displayStack() {
+  document.getElementById("stack-display").innerText = `Stack: [${stack.join(", ")}]`;
+}
+
+// Queue
+let queue = [];
+function enqueue() {
+  const val = document.getElementById("queue-input").value;
+  if (val) {
+    queue.push(val);
+    displayQueue();
+  }
+}
+function dequeue() {
+  queue.shift();
+  displayQueue();
+}
+function displayQueue() {
+  document.getElementById("queue-display").innerText = `Queue: [${queue.join(", ")}]`;
+}
+
+// Tree
+function traverseTree() {
+  const output = "A → B → D → E → C → F → G";
+  document.getElementById("tree-output").innerText = output;
+}
+
+// Code Runner
+function runCode() {
+  const code = document.getElementById("code-input").value;
+  try {
+    const result = eval(code);
+    document.getElementById("code-output").innerText = result;
+  } catch (err) {
+    document.getElementById("code-output").innerText = "Error: " + err.message;
+  }
 }
